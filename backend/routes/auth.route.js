@@ -22,7 +22,7 @@ router.get("/profile", protect, getUserProfile);    // get user profile
 router.put("/profile", protect, updateUserProfile); // update user profile
 router.delete("/delete", protect, deleteUser);      // delete user
 
-router.post("/update-image", upload.single("image"), async (req, res) => {
+router.post("/update-image", protect, upload.single("image"), async (req, res) => {
     if(!req.file) {
         return res.status(400).json({ message: "No file uploaded" });
     }
