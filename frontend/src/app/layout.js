@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${interFont.variable}  antialiased dark`}
+        className={`${interFont.variable} antialiased dark`}
       >
         <UserProvider>{children}</UserProvider>
       </body>

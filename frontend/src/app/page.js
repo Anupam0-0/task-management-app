@@ -9,6 +9,7 @@ const Page = () => {
   if (loading) return <div>Loading...</div>;
 
   if (!user) {
+    redirect("/login");
     return (
       <div>
         <p>You are not logged in.</p>
@@ -18,6 +19,7 @@ const Page = () => {
   }
 
   if (user.role === "admin") {
+    redirect("/admin/dashboard");
     return (
       <div>
         <p>Redirecting to admin dashboard...</p>
