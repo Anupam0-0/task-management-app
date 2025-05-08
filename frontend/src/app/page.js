@@ -1,11 +1,10 @@
-import React from "react";
+"use client";
+import React, { useContext } from "react";
 import Link from "next/link";
-import { UserContext } from "@/context/userContext"; // Assuming you have a UserContext to manage user state
-import { useContext } from "react";
+import { useUser } from "@/context/userContext";
 
 const Page = () => {
-
-  const {user, loading} = useContext(UserContext); // Assuming you have a UserContext to manage user state
+  const { user, loading } = useUser();
 
   if (loading) return <div>Loading...</div>;
 
@@ -33,7 +32,6 @@ const Page = () => {
       <Link href="/user/dashboard">Go to User Dashboard</Link>
     </div>
   );
-
 };
 
 export default Page;

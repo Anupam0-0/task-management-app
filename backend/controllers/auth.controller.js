@@ -15,12 +15,16 @@ const generateToken = (id) => {
 // @access Public
 const registerUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, adminCode } = req.body;
 
         // Check if user exists
         const userExists = await User.findOne({ email });
         if (userExists) {
             return res.status(400).json({ message: "User already exists" });
+        }
+
+        if (adminCode && adminCode !== process.env.ADMIN_CODE) {
+            return res.status(401).json({ message: "Invalid admin code" });
         }
 
         // Hash password
@@ -31,6 +35,7 @@ const registerUser = async (req, res) => {
             name,
             email,
             password: hashedPassword,
+            role: adminCode ? "admin" : "user",
         });
 
         if (user) {

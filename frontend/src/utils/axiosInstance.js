@@ -4,6 +4,7 @@ import { BASE_URL } from './apiPaths';
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
     // timeout: 10000, // 10 seconds timeout
+    withCredentials: true, // Include credentials (cookies) in requests
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
