@@ -1,37 +1,21 @@
 "use client";
-import React, { useContext } from "react";
+import React from "react";
 import Link from "next/link";
 import { useUser } from "@/context/userContext";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
-  const { user, loading } = useUser();
-
-  if (loading) return <div>Loading...</div>;
+  const { user } = useUser();
+  const router = useRouter();
 
   if (!user) {
-    redirect("/login");
-    return (
-      <div>
-        <p>You are not logged in.</p>
-        <Link href="/login">Go to login</Link>
-      </div>
-    );
-  }
-
-  if (user.role === "admin") {
-    redirect("/admin/dashboard");
-    return (
-      <div>
-        <p>Redirecting to admin dashboard...</p>
-        <Link href="/admin/dashboard">Go to Admin Dashboard</Link>
-      </div>
-    );
+    router.push("/login");
   }
 
   return (
     <div>
-      <p>Redirecting to user dashboard...</p>
-      <Link href="/user/dashboard">Go to User Dashboard</Link>
+      <p>You are not logged in.</p>
+      <Link href="/login">Go to login</Link>
     </div>
   );
 };
