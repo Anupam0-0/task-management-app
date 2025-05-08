@@ -1,14 +1,22 @@
 "use client";
 
-import { useUserAuth } from '@/hooks/useUserAuth'
+import { useUser } from '@/context/userContext';
+import Link from 'next/link';
 import React from 'react'
 
 const page = () => {
 
-  useUserAuth(); // Custom hook to check user authentication
+  const user = useUser()
 
   return (
-    <div>users dashboard</div>
+    <div>
+      users dashboard
+      <br />
+      {JSON.stringify(user)}
+      <br />
+      <Link href='/admin/dashboard'>ADMIN</Link>
+    </div>
+    
   )
 }
 

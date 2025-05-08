@@ -1,4 +1,7 @@
 export const BASE_URL = "http://localhost:5000";
+// in production, it should be not be exposed like this and should be stored in .env file
+// but since this is a assignment, I am keeping it to shoow from where the api is being called
+
 
 // utils/apiPaths.js
 export const API_PATHS = {

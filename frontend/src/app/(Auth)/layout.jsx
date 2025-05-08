@@ -1,5 +1,6 @@
 "use client"
 import axiosInstance from "@/utils/axiosInstance";
+import Image from "next/image";
 import React from "react";
 
 
@@ -30,7 +31,9 @@ const layout = ({ children }) => {
             {children}
           </div>
         </section>
-        <section className="w-full hidden lg:flex lg:w-1/2 flex-col items-center justify-center h-full bg-neutral-50 text-neutral-950"></section>
+        <section className="w-full hidden lg:flex lg:w-1/2 flex-col items-center justify-center h-full bg-neutral-100 ">
+          <Image src='/AuthWallpaper.png' height={500} width={800} className='object-cover' alt='auth' />
+        </section>
       </main>
     </div>
   );

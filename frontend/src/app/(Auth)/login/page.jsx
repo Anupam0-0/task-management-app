@@ -53,7 +53,7 @@ const Page = () => {
         localStorage.setItem("token", token);
         updateUser(response.data);
 
-        if (role === "admin") {
+        if (response.data.role === "admin") {
           window.location.href = "/admin/dashboard";
         } else {
           window.location.href = "/user/dashboard";
